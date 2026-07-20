@@ -1,5 +1,5 @@
 {
-    "name": "draw/dependency-injection",
+    "name": "codraw/dependency-injection",
     "description": "Dependency injection addons to Symfony",
     "license": "MIT",
     "type": "library",
