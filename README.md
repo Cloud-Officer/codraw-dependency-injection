@@ -4,8 +4,8 @@ This package provides addons to the Symfony Dependency Injection component.
 
 ## Installation
 
-```bash
-composer require codraw/dependency-injection
+```
+composer require draw/dependency-injection
 ```
 
 ## Integration
@@ -60,22 +60,22 @@ class ExampleMyBundle extends Bundle
 }
 ```
 
-### registerDefaultIntegrations
+**registerDefaultIntegrations**
 
 The `registerDefaultIntegrations` method will automatically register all the integrations that are in the `provideExtensionClasses` method.
 
 It will check if the class exists and if it does it will create a new instance of it and add it to the `integrations` property.
 
-That way you can define the integration classes in the specific component, and it will automatically be integrated into the main bundle
+That way you can define the integration classes in the specific component, and it will automatically be integrated into the main bundle 
 if your component is installed.
 
-### loadIntegrations
+**loadIntegrations**
 
 The `loadIntegrations` method will call the `load` method on all the integrations that are registered.
 
 It will automatically pass the configuration to the existing configuration only if they are `enabled`.
 
-### prependIntegrations
+**prependIntegrations**
 
 The `prependIntegrations` method will call the `prepend` method on all the integrations that are registered.
 
@@ -95,3 +95,4 @@ example_my_bundle:
 ```
 
 This example will enable the `MyComponentIntegration` and disable the `MyOtherComponentIntegration`.
+
