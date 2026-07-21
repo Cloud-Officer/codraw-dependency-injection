@@ -15,12 +15,17 @@
         }
     ],
     "require": {
-        "php": ">=8.5",
+        "php": "^8.5",
+        "codraw/core": "^0.39",
         "symfony/config": "^6.4.0",
         "symfony/dependency-injection": "^6.4.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^11.3 || ^12.0"
+    },
+    "suggest": {
+        "phpunit/phpunit": "To use the IntegrationTestCase in your own test suite",
+        "symfony/expression-language": "To use the ifExpression tag attribute with TagIfExpressionCompilerPass"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

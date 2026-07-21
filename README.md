@@ -15,17 +15,21 @@ subcomponents into a main bundle.
 
 An example of this is all the draw components that are integrated into the `DrawFrameworkExtraBundle`.
 
-When creating the main bundle extension you can use the `IntegrationTrait` to easily integrate all the subcomponents.
+When creating the main bundle extension you can use the `ExtendableExtensionTrait` to easily integrate all the subcomponents.
 
 ```php
 
 namespace Example\Bundle\MyBundle\DependencyInjection;
 
-use Draw\Component\DependencyInjection\IntegrationTrait;
-use Example\Component\MyComponent\DependencyInjection\MyCompnentIntegration;
+use Draw\Component\DependencyInjection\Integration\ExtendableExtensionTrait;
+use Example\Component\MyComponent\DependencyInjection\MyComponentIntegration;
 use Example\Component\MyOtherComponent\DependencyInjection\MyOtherComponentIntegration;
+use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\Extension;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 
-class ExampleMyBundle extends Bundle
+class ExampleMyBundleExtension extends Extension implements PrependExtensionInterface
 {
     use ExtendableExtensionTrait;
 
@@ -37,7 +41,8 @@ class ExampleMyBundle extends Bundle
     private function provideExtensionClasses(): array
     {
         return [
-            MyCompnentIntegration::class,
+            MyComponentIntegration::class,
+            MyOtherComponentIntegration::class,
         ];
     }
 

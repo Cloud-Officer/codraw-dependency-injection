@@ -58,8 +58,8 @@ abstract class IntegrationTestCase extends TestCase
     public function testDefaultConfiguration(): void
     {
         static::assertJsonStringEqualsJsonString(
-            json_encode($this->processConfiguration()),
-            json_encode($this->getDefaultConfiguration()),
+            json_encode($this->getDefaultConfiguration(), \JSON_THROW_ON_ERROR),
+            json_encode($this->processConfiguration(), \JSON_THROW_ON_ERROR),
         );
     }
 
@@ -217,30 +217,5 @@ abstract class IntegrationTestCase extends TestCase
             ),
             'Defined parameters do not match'
         );
-    }
-}
-
-class ServiceConfiguration
-{
-    private $definitionCheckCallback;
-
-    public function __construct(private string $id, private array $aliases, ?callable $definitionCheckCallback = null)
-    {
-        $this->definitionCheckCallback = $definitionCheckCallback;
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    public function getAliases(): array
-    {
-        return $this->aliases;
-    }
-
-    public function getDefinitionCheckCallback(): ?callable
-    {
-        return $this->definitionCheckCallback;
     }
 }

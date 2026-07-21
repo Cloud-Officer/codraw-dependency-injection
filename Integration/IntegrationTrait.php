@@ -115,10 +115,11 @@ trait IntegrationTrait
                 $definition->setClass($id);
             }
 
-            $newDefinitionId = $this->serviceIdClassToNameConvention(str_replace(
-                $classOrNamespace,
+            $newDefinitionId = $this->serviceIdClassToNameConvention(substr_replace(
+                $id,
                 $namePrefix,
-                $id
+                0,
+                \strlen($classOrNamespace)
             ));
 
             $container->removeDefinition($id);
