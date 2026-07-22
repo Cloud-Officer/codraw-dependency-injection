@@ -5,7 +5,7 @@ This package provides addons to the Symfony Dependency Injection component.
 ## Installation
 
 ```
-composer require draw/dependency-injection
+composer require codraw/dependency-injection
 ```
 
 ## Integration
