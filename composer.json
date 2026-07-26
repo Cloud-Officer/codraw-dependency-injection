@@ -35,6 +35,6 @@
         }
     },
     "replace": {
-        "codraw/dependency-injection": "self.version"
+        "draw/dependency-injection": "self.version"
     }
 }
